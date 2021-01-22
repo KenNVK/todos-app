@@ -28,7 +28,7 @@ export default {
   name: "Footer",
   setup() {
     const switchToggle = ref(true);
-    const defaultTheme = ref("light");
+    const defaultTheme = ref("dark");
     const store = useStore();
     const setTheme = (themeMode) => store.dispatch("setTheme", themeMode);
 
@@ -40,7 +40,7 @@ export default {
     });
     // Select theme
     watch(switchToggle, () => {
-      switchToggle.value ? setTheme(defaultTheme.value) : setTheme("dark");
+      switchToggle.value ? setTheme(defaultTheme.value) : setTheme("light");
     });
     return { switchToggle };
   },
