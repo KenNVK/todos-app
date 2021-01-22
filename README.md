@@ -1,4 +1,4 @@
-# Todos app with Vue 3 and Vuex
+# Todos app with Vue 3 and Vuex 4
 Demo: https://todos-app-kennvk.vercel.app/
 
 ## Project setup
