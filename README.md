@@ -1,4 +1,5 @@
-# todos_app
+# Todos app with Vue 3 and Vuex
+Demo: https://todos-app-kennvk.vercel.app/
 
 ## Project setup
 ```
