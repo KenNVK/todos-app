@@ -1,0 +1,101 @@
+.todo-list {
+  color: var(--text-color);
+  background-color: var(--app-background-color);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 8px 8px;
+  list-style: none;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.todo-list li .todo-content {
+  flex: 1;
+  word-break: break-all;
+  padding: 8px 10px 10px;
+  cursor: text;
+}
+
+.todo-list li input[type="text"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  color: var(--text-color);
+  background-color: var(--edit-background-color);
+  outline: none;
+}
+
+.todo-list li span.isCompleted {
+  text-decoration: line-through;
+}
+
+.todo-list li .delete-icon {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgba(138, 37, 6, 0.75);
+}
+
+.todo-list li .delete-icon:hover {
+  color: #8a2506;
+}
+
+/*================= Custom checkbox =============== */
+input[name="checkbox"] {
+  display: none;
+}
+
+label[name="checkbox"] {
+  position: relative;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid #a3a3a3;
+  cursor: pointer;
+}
+
+label[name="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  width: 11px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + label[name="checkbox"] {
+  background-color: #38863e;
+  border-color: transparent;
+}
+
+input[type="checkbox"]:checked + label[name="checkbox"]::after {
+  opacity: 1;
+}
+
+/*=========== Draggable ===========-*/
+.drag-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  cursor: grab;
+  color: #a3a3a3;
+}
+
+.chosen {
+  opacity: 0.5;
+  background-color: #4a5b88;
+}
