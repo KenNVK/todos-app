@@ -5,7 +5,7 @@ const storageTheme = 'theme';
 const store = createStore({
   state: {
     todos: JSON.parse(localStorage.getItem(storageData)) || [],
-    theme: localStorage.getItem(storageTheme),
+    theme: localStorage.getItem(storageTheme) || "dark",
   },
   getters: {
     progress: state => {
@@ -100,7 +100,6 @@ const store = createStore({
     set_theme(state, themeMode) {
       state.theme = themeMode;
       document.documentElement.setAttribute('theme', themeMode);
-      console.log(state.theme);
       localStorage.setItem(storageTheme, state.theme);
     }
   },

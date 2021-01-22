@@ -10,12 +10,12 @@
         name="checkbox"
         id="theme-mode"
         type="checkbox"
-        v-model="switchToggle"
+        v-model="darkmode"
       />
       <label
         class="switch"
         for="theme-mode"
-        :class="switchToggle ? 'active' : ''"
+        :class="darkmode ? 'active' : ''"
       ></label>
     </div>
   </footer>
@@ -27,22 +27,26 @@ import { useStore } from "vuex";
 export default {
   name: "Footer",
   setup() {
-    const switchToggle = ref(true);
-    const defaultTheme = ref("dark");
+    const darkmode = ref(null);
     const store = useStore();
+    const theme = store.state.theme;
     const setTheme = (themeMode) => store.dispatch("setTheme", themeMode);
 
     // Set default theme and app title
     onMounted(() => {
       document.title = "Todos app";
       document.body.classList.add("body-background");
-      document.documentElement.setAttribute("theme", defaultTheme.value);
+      if (theme === "light") {
+        darkmode.value = false;
+        } else {
+        darkmode.value = true;
+      }
     });
     // Select theme
-    watch(switchToggle, () => {
-      switchToggle.value ? setTheme(defaultTheme.value) : setTheme("light");
+    watch(darkmode, () => {
+      darkmode.value ? setTheme("dark") : setTheme("light");
     });
-    return { switchToggle };
+    return { darkmode };
   },
 };
 </script>
