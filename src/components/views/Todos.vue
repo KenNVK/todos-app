@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 import { VueDraggableNext } from "vue-draggable-next";
 import TodoItems from "./TodoItems";
@@ -28,7 +28,6 @@ export default {
   name: "Todos",
   components: { TodoItems, draggable: VueDraggableNext },
   setup() {
-    const newTodo = ref(todos);
     const store = useStore();
     const todos = computed({
       get: () => store.state.todos,
@@ -45,7 +44,6 @@ export default {
       }
     };
     return {
-      newTodo,
       todos,
       updateTodo,
       handleEdit,
@@ -56,5 +54,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
