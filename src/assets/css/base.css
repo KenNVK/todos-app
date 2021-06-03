@@ -35,7 +35,11 @@ body {
 }
 
 body {
+<<<<<<< HEAD
   margin: 0px 8px 10px;
+=======
+  margin: 0px 8px 100px;
+>>>>>>> 87dbe02 (fix bug)
 }
 
 .body-background {

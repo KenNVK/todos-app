@@ -8,7 +8,7 @@
         type="checkbox"
         id="all-check"
         :checked="allChecked"
-        @change="markCompletedAll(!allChecked)"
+        @change="markCompletedAll(allChecked)"
       />
       <label v-show="todos.length > 0" name="checkbox" for="all-check"></label>
       <span class="validate-msg" v-if="validationMsg !== ''">
@@ -31,10 +31,10 @@ export default {
     const store = useStore();
     const todos = computed(() => store.state.todos);
     const allChecked = computed(() => store.getters.allChecked);
-    const addTodo = (newTodo) => store.dispatch("addTodo", newTodo);
-    const markCompletedAll = () => store.dispatch("markCompletedAll");
+    const addTodo = newTodo => store.dispatch("addTodo", newTodo);
+    const markCompletedAll = allChecked => store.dispatch("markCompletedAll", allChecked);
 
-    const onSubmit = (event) => {
+    const onSubmit = event => {
       event.preventDefault();
       if (content.value !== "") {
         addTodo({
