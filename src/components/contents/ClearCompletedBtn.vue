@@ -13,7 +13,7 @@ export default {
     const store = useStore();
     const todos = computed(() => store.state.todos);
     const allChecked = computed(() => store.getters.allChecked);
-    const deleteDoneTodos = () => store.dispatch("deleteDoneTodos");
+    const deleteDoneTodos = allChecked => store.dispatch("deleteDoneTodos", allChecked);
     return { todos, allChecked, deleteDoneTodos };
   },
 };
