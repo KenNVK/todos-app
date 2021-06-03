@@ -1,13 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <div
-    class="clear-all-btn"
-    v-show="allChecked && todos.length > 0"
-    @click="deleteDoneTodos"
-  >
-=======
   <div class="clear-all-btn" v-show="allChecked && todos.length > 0" @click="deleteDoneTodos">
->>>>>>> 87dbe02 (fix bug)
     Clear Completed
   </div>
 </template>
@@ -21,11 +13,7 @@ export default {
     const store = useStore();
     const todos = computed(() => store.state.todos);
     const allChecked = computed(() => store.getters.allChecked);
-<<<<<<< HEAD
-    const deleteDoneTodos = () => store.state.deleteDoneTodos;
-=======
     const deleteDoneTodos = () => store.dispatch("deleteDoneTodos");
->>>>>>> 87dbe02 (fix bug)
     return { todos, allChecked, deleteDoneTodos };
   },
 };
@@ -46,8 +34,4 @@ export default {
 .clear-all-btn:hover {
   background-color: #38863e;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 87dbe02 (fix bug)
