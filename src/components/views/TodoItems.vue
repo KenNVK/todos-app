@@ -41,16 +41,16 @@ export default {
   props: ["todoProps"],
   directives: {
     focus: {
-      mounted: (el) => {
+      mounted: el => {
         el.focus();
       },
     },
   },
   setup(props, { emit }) {
     const store = useStore();
-    const markCompleted = (id) => store.dispatch("markCompleted", id);
-    const deleteTodo = (id) => store.dispatch("deleteTodo", id);
-    const handleEdit = (id) => store.dispatch("handleEdit", id);
+    const markCompleted = id => store.dispatch("markCompleted", id);
+    const deleteTodo = id => store.dispatch("deleteTodo", id);
+    const handleEdit = id => store.dispatch("handleEdit", id);
     const handleUpdateEdit = () => emit("handle-update-edit");
     const handleShowEdit = () => emit("handle-show-edit");
     return {
@@ -64,6 +64,4 @@ export default {
 };
 </script>
 
-
-<style>
-</style>
+<style></style>

@@ -6,17 +6,8 @@
       <a href="https://github.com/KenNVK/todos-app">#KenNVK</a>
     </div>
     <div class="footer-switch">
-      <input
-        name="checkbox"
-        id="theme-mode"
-        type="checkbox"
-        v-model="darkmode"
-      />
-      <label
-        class="switch"
-        for="theme-mode"
-        :class="darkmode ? 'active' : ''"
-      ></label>
+      <input name="checkbox" id="theme-mode" type="checkbox" v-model="darkmode" />
+      <label class="switch" for="theme-mode" :class="darkmode ? 'active' : ''"></label>
     </div>
   </footer>
 </template>
@@ -30,7 +21,7 @@ export default {
     const darkmode = ref(null);
     const store = useStore();
     const theme = store.state.theme;
-    const setTheme = (themeMode) => store.dispatch("setTheme", themeMode);
+    const setTheme = themeMode => store.dispatch("setTheme", themeMode);
 
     // Set default theme and app title
     onMounted(() => {
@@ -38,7 +29,7 @@ export default {
       document.body.classList.add("body-background");
       if (theme === "light") {
         darkmode.value = false;
-        } else {
+      } else {
         darkmode.value = true;
       }
     });
